@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Message.destoy_all
+Message.destroy_all
 User.destroy_all
 Channel.destroy_all
 
@@ -23,4 +23,9 @@ messages = [
   "Olaaa",
   "Hey tudo bem?",
   "Teste teste",
+  "Mais um teste"
 ]
+
+messages.each do |content|
+  Message.create(content: content, channel: Channel.first, user: User.first)
+end
