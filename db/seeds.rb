@@ -5,3 +5,22 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Message.destoy_all
+User.destroy_all
+Channel.destroy_all
+
+channels = %w(general react paris)
+channels.each do |channel|
+  Channel.create(name: channel)
+end
+
+userEmails = %w(mari@bis.com davis@bis.com bis@bis.com)
+userEmails.each do |email|
+  User.create(email: email, password: 'password')
+end
+
+messages = [
+  "Olaaa",
+  "Hey tudo bem?",
+  "Teste teste",
+]
