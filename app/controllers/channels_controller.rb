@@ -1,3 +1,5 @@
 class ChannelsController < ApplicationController
-  validates :name, presence: true, uniqueness: true
+  def show
+    @channel = Channel.find(params[:id])
+  end
 end
