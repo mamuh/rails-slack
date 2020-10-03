@@ -38,12 +38,15 @@ messages3 = [
   "Paris channel"
 ]
 
-allMessages = [messages1, messages2, messages3]
 
-channels.each do |channel|
-  allMessages.each do |messagesArray|
-    messagesArray.each do |message|
-      Message.create(content: message, channel: Channel.find_by_name(channel), user: User.first)
-    end
-  end
+messages1.each do |message|
+  Message.create(content: message, channel: Channel.find_by_name("general"), user: User.first)
+end
+
+messages2.each do |message|
+  Message.create(content: message, channel: Channel.find_by_name("react"), user: User.last)
+end
+
+messages3.each do |message|
+  Message.create(content: message, channel: Channel.find_by_name("paris"), user: User.first)
 end

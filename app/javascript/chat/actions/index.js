@@ -1,5 +1,4 @@
-// const BASE_URL = window.location.origin.toString();
-const BASE_URL = "http://localhost:3000";
+const BASE_URL = window.location.origin.toString();
 
 export const FETCH_MESSAGES = 'FETCH_MESSAGES';
 export const MESSAGE_POSTED = 'MESSAGE_POSTED';
