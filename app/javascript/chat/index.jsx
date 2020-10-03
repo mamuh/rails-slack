@@ -6,6 +6,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import logger from 'redux-logger'
 import ReduxPromise from 'redux-promise';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { createBrowserHistory as history } from 'history';
 
 import App from './components/app';
 import messagesReducer from './reducers/messages_reducer';
@@ -27,7 +28,7 @@ const store = createStore(reducers, initialState, middlewares);
 
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter>
+    <BrowserRouter history={history}>
       <Switch>
         <Route path="/channels/:channel" component={App} />
       </Switch>

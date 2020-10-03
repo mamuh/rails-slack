@@ -1,3 +1,5 @@
+// import { createBrowserHistory as history } from 'history';
+
 const BASE_URL = window.location.origin.toString();
 
 export const FETCH_MESSAGES = 'FETCH_MESSAGES';
@@ -33,6 +35,7 @@ export function createMessage(channel, author, content) {
 }
 
 export function selectChannel(channel) {
+  // history.push(`/channels/${channel}`);
   return {
     type: CHANNEL_SELECTED,
     payload: channel

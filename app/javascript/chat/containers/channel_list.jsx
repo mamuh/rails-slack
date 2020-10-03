@@ -1,9 +1,11 @@
 /* eslint no-bitwise:off */
 
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
+import { bindActionCreators, compose } from 'redux';
 import { connect } from 'react-redux';
 import { selectChannel, fetchMessages } from '../actions/index';
+// import { createBrowserHistory as history } from 'history';
+import { withRouter } from "react-router-dom";
 
 class ChannelList extends Component {
   componentWillReceiveProps(nextProps) {
@@ -15,6 +17,7 @@ class ChannelList extends Component {
   handleClick = (channel) => {
     this.props.selectChannel(); // will empty message list first
     this.props.fetchMessages(channel);
+    this.props.history.push(`/channels/${channel}`);
   }
 
   renderChannel = (channel) => {
@@ -52,4 +55,9 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({ selectChannel, fetchMessages }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ChannelList);
+export default compose(
+  withRouter,
+  connect(mapStateToProps, mapDispatchToProps)
+)(ChannelList);
+
+// connect(mapStateToProps, mapDispatchToProps)(ChannelList);
