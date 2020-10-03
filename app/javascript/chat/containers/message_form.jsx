@@ -44,10 +44,10 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({ createMessage }, dispatch);
 }
 
-// function mapStateToProps(state) {
-//   return {
-//     currentUser: state.currentUser
-//   };
-// }
+function mapStateToProps(state) {
+  return {
+    // currentUser: state.currentUser
+  };
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(MessageForm);
