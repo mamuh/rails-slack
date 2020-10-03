@@ -9,6 +9,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :channels, only: [ :show ]
+  resources :channels, param: :name, only: [ :show ]
   root to: 'channels#show'
 end

@@ -19,13 +19,31 @@ userEmails.each do |email|
   User.create(email: email, password: 'password')
 end
 
-messages = [
+messages1 = [
   "Olaaa",
   "Hey tudo bem?",
   "Teste teste",
   "Mais um teste"
 ]
 
-messages.each do |content|
-  Message.create(content: content, channel: Channel.first, user: User.first)
+messages2 = [
+  "Hey there",
+  "Testing",
+  "React channel"
+]
+
+messages3 = [
+  "CHANO",
+  "Dedeee",
+  "Paris channel"
+]
+
+allMessages = [messages1, messages2, messages3]
+
+channels.each do |channel|
+  allMessages.each do |messagesArray|
+    messagesArray.each do |message|
+      Message.create(content: message, channel: Channel.find_by_name(channel), user: User.first)
+    end
+  end
 end
