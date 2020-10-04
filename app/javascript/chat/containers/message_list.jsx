@@ -27,7 +27,7 @@ class MessageList extends Component {
   }
 
   render () {
-    const sortedMessages = this.props.messages.sort((a, b) => a - b).reverse()
+    // const sortedMessages = this.props.messages.sort((a, b) => a - b).reverse()
     return (
       <div className="channel-container">
         <div className="channel-title">
@@ -35,7 +35,7 @@ class MessageList extends Component {
         </div>
         <div className="channel-content" ref={(list) => { this.list = list; }}>
           {
-            sortedMessages.map((message) => {
+            this.props.messages.map((message) => {
               return <Message key={message.id} message={message} />;
             })
           }

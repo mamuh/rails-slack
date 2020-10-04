@@ -3,7 +3,7 @@ class MessageSerializer < ActiveModel::Serializer
   # attribute :preferred, key: :is_preferred
 
   def author
-    object.user.email
+    object.user.nickname
     # self.object.user.email
   end
 end
