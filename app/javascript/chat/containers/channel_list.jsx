@@ -1,10 +1,7 @@
-/* eslint no-bitwise:off */
-
 import React, { Component } from 'react';
 import { bindActionCreators, compose } from 'redux';
 import { connect } from 'react-redux';
 import { selectChannel, fetchMessages } from '../actions/index';
-// import { createBrowserHistory as history } from 'history';
 import { withRouter } from "react-router-dom";
 
 class ChannelList extends Component {
@@ -59,5 +56,3 @@ export default compose(
   withRouter,
   connect(mapStateToProps, mapDispatchToProps)
 )(ChannelList);
-
-// connect(mapStateToProps, mapDispatchToProps)(ChannelList);

@@ -7,6 +7,7 @@ class Api::V1::MessagesController < ActionController::Base
   end
 
   def create
+    @current_user = current_user
   end
 
   def find_channel
