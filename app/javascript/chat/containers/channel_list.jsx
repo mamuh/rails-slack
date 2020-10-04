@@ -22,7 +22,7 @@ class ChannelList extends Component {
       <li
         key={channel.id}
         className={channel === this.props.selectedChannel ? 'active' : null}
-        onClick={() => this.handleClick(channel)}
+        onClick={() => this.handleClick(channel.name)}
         role="presentation"
       >
         #{channel.name}
