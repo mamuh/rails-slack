@@ -9,14 +9,14 @@ Message.destroy_all
 User.destroy_all
 Channel.destroy_all
 
-channels = %w(general react paris)
+channels = %w(general react paris dbchannel)
 channels.each do |channel|
   Channel.create(name: channel)
 end
 
 userEmails = %w(mari@bis.com davis@bis.com bis@bis.com)
 userEmails.each do |email|
-  User.create(email: email, password: 'password')
+  User.create(email: email, password: 'password', nickname: email.partition('@').first)
 end
 
 messages1 = [
@@ -38,6 +38,10 @@ messages3 = [
   "Paris channel"
 ]
 
+messages4 = [
+  "db channel, pulling messages and channels from postgresql"
+]
+
 
 messages1.each do |message|
   Message.create(content: message, channel: Channel.find_by_name("general"), user: User.first)
@@ -49,4 +53,8 @@ end
 
 messages3.each do |message|
   Message.create(content: message, channel: Channel.find_by_name("paris"), user: User.first)
+end
+
+messages4.each do |message|
+  Message.create(content: message, channel: Channel.find_by_name("dbchannel"), user: User.last)
 end
