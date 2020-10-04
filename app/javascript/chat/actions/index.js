@@ -18,14 +18,14 @@ export function fetchMessages(channel) {
 
 
 export function createMessage(channel, content) {
-  const url = `${BASE_URL}/channels/${channel}/messages`;
+  const url = `${BASE_URL}/api/v1/channels/${channel}/messages`;
   const body = { content };
   const csrfToken = document.querySelector('meta[name="csrf-token"]').attributes.content.value;
   const promise = fetch(url, {
     method: 'POST',
     headers: {
-      'Accept': 'application/json',
       'Content-Type': 'application/json',
+      'Accept': 'application/json',
       'X-CSRF-Token': csrfToken
     },
     credentials: 'same-origin',
