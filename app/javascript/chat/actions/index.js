@@ -18,9 +18,9 @@ export function fetchMessages(channel) {
 
 
 export function createMessage(channel, content) {
-  const url = `${BASE_URL}/api/v1/channels/${channel}/messages`;
+  const url = `${BASE_URL}/channels/${channel}/messages`;
+  const body = { content };
   const csrfToken = document.querySelector('meta[name="csrf-token"]').attributes.content.value;
-  const body = { content }; // ES6 destructuring
   const promise = fetch(url, {
     method: 'POST',
     headers: {
@@ -28,12 +28,12 @@ export function createMessage(channel, content) {
       'Content-Type': 'application/json',
       'X-CSRF-Token': csrfToken
     },
-    credentials: "same-origin",
+    credentials: 'same-origin',
     body: JSON.stringify(body)
-  }).then(res => res.json());
+  }).then(r => r.json());
 
   return {
-    type: MESSAGE_POSTED,
+    type: 'MESSAGE_POSTED',
     payload: promise // Will be resolved by redux-promise
   };
 }
