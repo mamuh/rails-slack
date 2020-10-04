@@ -20,12 +20,12 @@ class ChannelList extends Component {
   renderChannel = (channel) => {
     return (
       <li
-        key={channel}
+        key={channel.id}
         className={channel === this.props.selectedChannel ? 'active' : null}
         onClick={() => this.handleClick(channel)}
         role="presentation"
       >
-        #{channel}
+        #{channel.name}
       </li>
     );
   }
